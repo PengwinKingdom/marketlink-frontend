@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+{% block title %}Dashboard · MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<header class="dashboard-header">
+  <div class="brand"><strong>MarketLink</strong></div>
+  <nav class="dash-nav">
+    <ul>
+      <li><a href="{{ url_for('dashboard') }}" class="active">Dashboard</a></li>
+      <a href="/dashboard/planes">Mi Plan</a>
+      <li><a href="{{ url_for('soporte') }}">Soporte</a></li>
+      <li><a href="{{ url_for('profile') }}">Perfil</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main class="dashboard-main container">
+  <div class="dash-top">
+    <div>
+      <h1>Hola, {{ company or "Tu empresa" }}</h1>
+      <p class="muted">Bienvenido a tu panel de control. Aquí podrás gestionar tus campañas, analizar métricas y conectar con la comunidad.</p>
+    </div>
+    <div class="quick-actions">
+      <a href="#nueva-campania" class="btn btn-primary">+ Nueva campaña</a>
+      <a href="#crear-contenido" class="btn btn-secondary">Crear contenido</a>
+      <a href="#soporte" class="btn btn-ghost">Contactar soporte</a>
+    </div>
+  </div>
+
+  <!-- KPIs -->
+  <section class="cards-grid kpis">
+    <article class="card kpi">
+      <div class="kpi-icon blue">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M7 10L12 15L17 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M12 3V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Campañas Activas</h3>
+      <p class="kpi-value">5</p>
+      <p class="kpi-sub">+2 este mes</p>
+    </article>
+    
+    <article class="card kpi">
+      <div class="kpi-icon orange">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+          <path d="M23 21V19C23 17.9391 22.5786 16.9217 21.8284 16.1716C21.0783 15.4214 20.0609 15 19 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          <path d="M16 3C17.0609 3 18.0783 3.42143 18.8284 4.17157C19.5786 4.92172 20 5.93913 20 7C20 8.06087 19.5786 9.07828 18.8284 9.82843C18.0783 10.5786 17.0609 11 16 11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <h3>Audiencia Total</h3>
+      <p class="kpi-value">2,340</p>
+      <p class="kpi-sub">Seguidores activos</p>
+    </article>
+    
+    <article class="card kpi">
+      <div class="kpi-icon green">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 3V21M21 21H3M7 13L12 8L16 12L21 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Tasa de Engagement</h3>
+      <p class="kpi-value status-ok">8.5%</p>
+      <p class="kpi-sub">+1.2% vs mes anterior</p>
+    </article>
+    
+    <article class="card kpi">
+      <div class="kpi-icon purple">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+          <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Conversiones</h3>
+      <p class="kpi-value">156</p>
+      <p class="kpi-sub">Últimos 30 días</p>
+    </article>
+  </section>
+
+  <!-- Dos columnas principales -->
+  <section class="grid-2">
+    <article id="planes" class="card">
+      <div class="card-head">
+        <h2>Tu plan actual</h2>
+        <a href="{{ url_for('planes') }}" class="link">Cambiar plan</a>
+      </div>
+      <div class="plan-current">
+        <div class="plan-badge-large">
+          <span class="plan-name">Plan Básico</span>
+          <span class="plan-status"><span class="badge ok">Activo</span></span>
+        </div>
+        <div class="plan-details">
+          <div class="plan-detail-item">
+            <span class="detail-label">Campañas permitidas:</span>
+            <span class="detail-value">3 / 3 usadas</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-label">Almacenamiento:</span>
+            <span class="detail-value">0.3GB / 1GB</span>
+          </div>
+          <div class="plan-detail-item">
+            <span class="detail-label">Renovación:</span>
+            <span class="detail-value">Gratis para siempre</span>
+          </div>
+        </div>
+        <div class="plan-upgrade">
+          <p class="muted-small">¿Necesitas más campañas y funciones avanzadas?</p>
+          <a class="btn btn-primary btn-sm">Actualizar a Pro</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h2>Actividad reciente</h2>
+        <a href="#ver-todo" class="link">Ver todo</a>
+      </div>
+      <ul class="timeline">
+        <li>
+          <span class="dot blue"></span> 
+          <div class="timeline-content">
+            <strong>Nueva campaña creada</strong>
+            <span class="timeline-time">Hace 2 horas</span>
+          </div>
+        </li>
+        <li>
+          <span class="dot green"></span> 
+          <div class="timeline-content">
+            <strong>+45 nuevos seguidores</strong>
+            <span class="timeline-time">Hoy a las 10:30 AM</span>
+          </div>
+        </li>
+        <li>
+          <span class="dot orange"></span> 
+          <div class="timeline-content">
+            <strong>Contenido compartido 23 veces</strong>
+            <span class="timeline-time">Ayer</span>
+          </div>
+        </li>
+        <li>
+          <span class="dot purple"></span> 
+          <div class="timeline-content">
+            <strong>8 conversiones generadas</strong>
+            <span class="timeline-time">Hace 3 días</span>
+          </div>
+        </li>
+      </ul>
+    </article>
+  </section>
+
+  <!-- Segunda fila -->
+  <section class="grid-2">
+    <article class="card">
+      <div class="card-head">
+        <h2>Campañas activas</h2>
+        <a href="#ver-todas" class="link">Ver todas</a>
+      </div>
+      <div class="campaigns-list">
+        <div class="campaign-item">
+          <div class="campaign-icon">🎯</div>
+          <div class="campaign-info">
+            <h4>Lanzamiento Q4</h4>
+            <p class="campaign-stats">234 impresiones • 18 clicks</p>
+          </div>
+          <span class="badge ok">Activa</span>
+        </div>
+        <div class="campaign-item">
+          <div class="campaign-icon">📱</div>
+          <div class="campaign-info">
+            <h4>Social Media Boost</h4>
+            <p class="campaign-stats">567 impresiones • 42 clicks</p>
+          </div>
+          <span class="badge ok">Activa</span>
+        </div>
+        <div class="campaign-item">
+          <div class="campaign-icon">💼</div>
+          <div class="campaign-info">
+            <h4>Email Marketing</h4>
+            <p class="campaign-stats">189 impresiones • 15 clicks</p>
+          </div>
+          <span class="badge ok">Activa</span>
+        </div>
+      </div>
+      <a href="#nueva-campania" class="btn btn-secondary btn-full">+ Crear nueva campaña</a>
+    </article>
+
+    <article class="card">
+      <div class="card-head">
+        <h2>Acceso rápido</h2>
+      </div>
+      <div class="quick-links">
+        <a href="#contenido" class="quick-link-item">
+          <div class="quick-link-icon blue">📝</div>
+          <div class="quick-link-info">
+            <h4>Crear contenido</h4>
+            <p>Publica en tu red</p>
+          </div>
+        </a>
+        <a href="#analytics" class="quick-link-item">
+          <div class="quick-link-icon orange">📊</div>
+          <div class="quick-link-info">
+            <h4>Analytics</h4>
+            <p>Ver métricas detalladas</p>
+          </div>
+        </a>
+        <a href="#comunidad" class="quick-link-item">
+          <div class="quick-link-icon green">👥</div>
+          <div class="quick-link-info">
+            <h4>Comunidad</h4>
+            <p>Conecta con profesionales</p>
+          </div>
+        </a>
+        <a href="{{ url_for('soporte') }}" class="quick-link-item">
+          <div class="quick-link-icon purple">💬</div>
+          <div class="quick-link-info">
+            <h4>Soporte</h4>
+            <p>Obtén ayuda</p>
+          </div>
+        </a>
+      </div>
+    </article>
+  </section>
+
+  <!-- Sección de perfil -->
+  <section class="grid-1">
+    <article id="perfil" class="card">
+      <div class="card-head">
+        <h2>Tu perfil</h2>
+        <a href="{{ url_for('profile') }}" class="link">Ver perfil completo</a>
+      </div>
+      <div class="profile-summary">
+        <div class="profile-avatar">
+          <div class="avatar-circle">{{ (company or "T")[0].upper() }}</div>
+        </div>
+        <div class="profile-info">
+          <h3>{{ company or "Tu empresa" }}</h3>
+          <p class="profile-email">{{ email or "correo@empresa.com" }}</p>
+          <div class="profile-stats">
+            <span class="stat-item"><strong>5</strong> Campañas</span>
+            <span class="stat-divider">•</span>
+            <span class="stat-item"><strong>2,340</strong> Seguidores</span>
+            <span class="stat-divider">•</span>
+            <span class="stat-item"><strong>156</strong> Conversiones</span>
+          </div>
+        </div>
+        <div class="profile-actions">
+          <a href="{{ url_for('profile') }}" class="btn btn-secondary">Editar perfil</a>
+          <a href="{{ url_for('logout') }}" class="btn btn-ghost">Cerrar sesión</a>
+        </div>
+      </div>
+    </article>
+  </section>
+</main>
+{% endblock %}

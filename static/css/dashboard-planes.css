@@ -1,0 +1,507 @@
+/* ========================================
+   DASHBOARD-PLANES.CSS - MarketLink
+   Página de Mi Plan del Usuario
+   ======================================== */
+
+/* Contenedor Principal */
+.dashboard-plan-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+    min-height: 100vh;
+}
+
+/* Encabezado de Página */
+.page-header {
+    margin-bottom: 40px;
+}
+
+.header-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.header-content p {
+    font-size: 1.1rem;
+    color: #64748b;
+}
+
+/* Tarjeta del Plan Actual */
+.current-plan-card {
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 2px solid #e2e8f0;
+}
+
+/* Sección de Título del Plan */
+.plan-title-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 30px;
+}
+
+.plan-name-badge {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.plan-name-badge h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0;
+}
+
+.status-badge {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.status-badge.active {
+    background-color: #10b981;
+    color: white;
+}
+
+/* Precio del Plan */
+.plan-price-info {
+    text-align: right;
+}
+
+.price-display {
+    display: flex;
+    align-items: baseline;
+    justify-content: flex-end;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #1e293b;
+    line-height: 1;
+}
+
+.period {
+    font-size: 1rem;
+    color: #64748b;
+    margin-left: 6px;
+}
+
+.renewal-info {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Divisor */
+.divider {
+    height: 2px;
+    background-color: #e2e8f0;
+    margin: 30px 0;
+}
+
+/* Sección de Recursos */
+.resources-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 24px;
+}
+
+.resource-items {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resource-item {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.resource-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.resource-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.resource-title .icon {
+    font-size: 1.5rem;
+}
+
+.resource-title .title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+}
+
+.resource-stats {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.current-usage {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.status-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 12px;
+}
+
+.status-label.ok {
+    background-color: #dbeafe;
+    color: #1e40af;
+}
+
+.status-label.limit-reached {
+    background-color: #fee2e2;
+    color: #991b1b;
+}
+
+.status-label.unlimited {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* Barra de Progreso */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e2e8f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    border-radius: 8px;
+    transition: width 0.3s ease;
+}
+
+.resource-item.no-progress .resource-header {
+    margin-bottom: 0;
+}
+
+/* Sección de Características */
+.features-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 12px;
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 16px;
+    background: #f0f9ff;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    color: #1e293b;
+}
+
+.feature .check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background-color: #10b981;
+    color: white;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* Card de Upgrade */
+.upgrade-cta-card {
+    background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+    border: 2px solid #fed7aa;
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 30px;
+}
+
+.upgrade-content {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    flex: 1;
+}
+
+.upgrade-icon {
+    font-size: 3.5rem;
+    flex-shrink: 0;
+}
+
+.upgrade-text h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 8px;
+}
+
+.upgrade-text p {
+    font-size: 1rem;
+    color: #64748b;
+    margin-bottom: 16px;
+}
+
+.upgrade-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+}
+
+.upgrade-benefits li {
+    font-size: 0.9rem;
+    color: #1e293b;
+}
+
+.upgrade-actions {
+    text-align: center;
+    flex-shrink: 0;
+}
+
+.btn-upgrade-primary {
+    background-color: #f97316;
+    color: white;
+    border: none;
+    padding: 16px 28px;
+    border-radius: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    box-shadow: 0 2px 4px rgba(249, 115, 22, 0.2);
+}
+
+.btn-upgrade-primary:hover {
+    background-color: #ea580c;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(249, 115, 22, 0.3);
+}
+
+.pricing-note {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+/* Sección de Gestión */
+.management-section {
+    margin-top: 40px;
+}
+
+.management-section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 24px;
+}
+
+.management-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.management-card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 2px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.management-card.danger {
+    border-color: #fecaca;
+    background: #fef2f2;
+}
+
+.card-icon {
+    font-size: 2.5rem;
+}
+
+.card-content h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 6px;
+}
+
+.card-content p {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin: 0;
+}
+
+.btn-secondary {
+    background-color: #e2e8f0;
+    color: #475569;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-start;
+}
+
+.btn-secondary:hover {
+    background-color: #cbd5e1;
+    transform: translateY(-1px);
+}
+
+.btn-danger {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    align-self: flex-start;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .upgrade-cta-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .upgrade-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .upgrade-benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .btn-upgrade-primary {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .dashboard-plan-container {
+        padding: 20px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 2rem;
+    }
+
+    .current-plan-card {
+        padding: 24px;
+    }
+
+    .plan-title-section {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .plan-price-info {
+        text-align: left;
+    }
+
+    .price {
+        font-size: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .management-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .upgrade-cta-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .plan-name-badge {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .plan-name-badge h2 {
+        font-size: 1.5rem;
+    }
+
+    .resource-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .resource-stats {
+        width: 100%;
+        justify-content: space-between;
+    }
+}

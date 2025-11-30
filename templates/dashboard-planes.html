@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+
+{% block title %}Mi Plan - MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard-planes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Header del Dashboard -->
+<header class="dashboard-header">
+  <div class="brand"><strong>MarketLink</strong></div>
+  <nav class="dash-nav">
+    <ul>
+      <li><a href="{{ url_for('dashboard') }}" >Dashboard</a></li>
+      <li><a href="/dashboard/planes" class="active">Mi Plan</a></li>
+      <li><a href="{{ url_for('soporte') }}">Soporte</a></li>
+      <li><a href="{{ url_for('profile') }}">Perfil</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="dashboard-plan-container">
+    
+    <!-- Encabezado -->
+    <div class="page-header">
+        <div class="header-content">
+            <h1>Mi Plan</h1>
+            <p>Administra tu suscripción y recursos</p>
+        </div>
+    </div>
+
+    <!-- Tarjeta Principal del Plan -->
+    <div class="current-plan-card">
+        
+        <!-- Info del Plan -->
+        <div class="plan-title-section">
+            <div class="plan-name-badge">
+                <h2>Plan Básico</h2>
+                <span class="status-badge active">ACTIVO</span>
+            </div>
+            <div class="plan-price-info">
+                <div class="price-display">
+                    <span class="price">$0</span>
+                    <span class="period">/mes</span>
+                </div>
+                <p class="renewal-info">Renovación: Gratis para siempre</p>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Uso de Recursos -->
+        <div class="resources-section">
+            <h3>Uso de Recursos</h3>
+            
+            <div class="resource-items">
+                <!-- Campañas -->
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-title">
+                            <span class="icon">📊</span>
+                            <span class="title">Campañas Activas</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="current-usage">3 / 3</span>
+                            <span class="status-label limit-reached">Límite alcanzado</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 100%; background-color: #ef4444;"></div>
+                    </div>
+                </div>
+
+                <!-- Almacenamiento -->
+                <div class="resource-item">
+                    <div class="resource-header">
+                        <div class="resource-title">
+                            <span class="icon">💾</span>
+                            <span class="title">Almacenamiento</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="current-usage">0.3 GB / 1 GB</span>
+                            <span class="status-label ok">30% usado</span>
+                        </div>
+                    </div>
+                    <div class="progress-bar-container">
+                        <div class="progress-bar-fill" style="width: 30%; background-color: #3b82f6;"></div>
+                    </div>
+                </div>
+
+                <!-- Conversiones -->
+                <div class="resource-item no-progress">
+                    <div class="resource-header">
+                        <div class="resource-title">
+                            <span class="icon">📈</span>
+                            <span class="title">Conversiones (últimos 30 días)</span>
+                        </div>
+                        <div class="resource-stats">
+                            <span class="current-usage">156</span>
+                            <span class="status-label unlimited">Ilimitadas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Características Incluidas -->
+        <div class="features-section">
+            <h3>Lo que incluye tu plan</h3>
+            <div class="features-grid">
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>3 campañas activas</span>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>Análisis básico</span>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>Acceso a comunidad</span>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>Soporte por email</span>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>1GB de almacenamiento</span>
+                </div>
+                <div class="feature">
+                    <span class="check">✓</span>
+                    <span>Dashboard básico</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Call to Action - Upgrade -->
+    <div class="upgrade-cta-card">
+        <div class="upgrade-content">
+            <div class="upgrade-icon">🚀</div>
+            <div class="upgrade-text">
+                <h3>¿Necesitas más capacidad?</h3>
+                <p>Actualiza tu plan y obtén más campañas, almacenamiento y funciones avanzadas</p>
+                <ul class="upgrade-benefits">
+                    <li>✨ Hasta 15 campañas activas</li>
+                    <li>✨ 50GB de almacenamiento</li>
+                    <li>✨ Análisis avanzado</li>
+                    <li>✨ Soporte prioritario 24/7</li>
+                </ul>
+            </div>
+        </div>
+        <div class="upgrade-actions">
+            <button class="btn-upgrade-primary" onclick="window.location.href='/planes'">
+                Ver Planes Disponibles
+            </button>
+            <p class="pricing-note">Desde $29/mes</p>
+        </div>
+    </div>
+
+    <!-- Opciones de Gestión -->
+    <div class="management-section">
+        <h3>Gestión de Suscripción</h3>
+        
+        <div class="management-cards">
+            
+            <div class="management-card">
+                <div class="card-icon">📄</div>
+                <div class="card-content">
+                    <h4>Historial de Facturas</h4>
+                    <p>Descarga tus recibos y facturas anteriores</p>
+                </div>
+                <button class="btn-secondary" onclick="alert('Próximamente disponible')">
+                    Ver Historial
+                </button>
+            </div>
+
+            <div class="management-card">
+                <div class="card-icon">💳</div>
+                <div class="card-content">
+                    <h4>Método de Pago</h4>
+                    <p>Actualiza tu información de pago</p>
+                </div>
+                <button class="btn-secondary" onclick="alert('Próximamente disponible')">
+                    Configurar
+                </button>
+            </div>
+
+            <div class="management-card danger">
+                <div class="card-icon">⚠️</div>
+                <div class="card-content">
+                    <h4>Cancelar Suscripción</h4>
+                    <p>Cancela tu plan en cualquier momento</p>
+                </div>
+                <button class="btn-danger" onclick="confirmarCancelacion()">
+                    Cancelar Plan
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+function confirmarCancelacion() {
+    if (confirm('¿Estás seguro de que deseas cancelar tu plan?\n\nPerderás acceso a todas las funciones premium.')) {
+        alert('Tu solicitud de cancelación ha sido registrada.\nRecibirás un correo de confirmación.');
+    }
+}
+</script>
+
+{% endblock %}

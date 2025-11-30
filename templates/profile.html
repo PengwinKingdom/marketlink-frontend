@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+
+{% block title %}Perfil - MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Header del Dashboard -->
+<header class="dashboard-header">
+  <div class="brand"><strong>MarketLink</strong></div>
+  <nav class="dash-nav">
+    <ul>
+      <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+      <a href="/dashboard/planes">Mi Plan</a>
+      <li><a href="{{ url_for('soporte') }}">Soporte</a></li>
+      <li><a href="{{ url_for('profile') }}" class="active">Perfil</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Contenido del Perfil -->
+<div class="profile-container">
+    
+    <div class="profile-header">
+        <h1>Mi Perfil</h1>
+        <p>Administra tu información personal y preferencias</p>
+    </div>
+
+    <!-- Card de Información Personal -->
+    <div class="profile-card">
+        <div class="profile-card-header">
+            <h2>Información Personal</h2>
+            <button class="btn-edit" onclick="alert('Función de editar próximamente')">
+                ✏️ Editar
+            </button>
+        </div>
+
+        <div class="profile-info-grid">
+            <div class="info-item">
+                <div class="info-label">Empresa</div>
+                <div class="info-value">{{ company }}</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">Correo Electrónico</div>
+                <div class="info-value">{{ email }}</div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">Plan Actual</div>
+                <div class="info-value">
+                    <span class="plan-badge">Plan Básico</span>
+                </div>
+            </div>
+
+            <div class="info-item">
+                <div class="info-label">Miembro desde</div>
+                <div class="info-value">Noviembre 2024</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card de Seguridad -->
+    <div class="profile-card">
+        <div class="profile-card-header">
+            <h2>Seguridad</h2>
+        </div>
+
+        <div class="security-options">
+            <div class="security-item">
+                <div class="security-info">
+                    <div class="security-icon">🔒</div>
+                    <div>
+                        <h3>Contraseña</h3>
+                        <p>Última actualización: Hace 2 meses</p>
+                    </div>
+                </div>
+                <button class="btn-secondary" onclick="alert('Cambiar contraseña próximamente')">
+                    Cambiar
+                </button>
+            </div>
+
+            <div class="security-item">
+                <div class="security-info">
+                    <div class="security-icon">📧</div>
+                    <div>
+                        <h3>Correo de Recuperación</h3>
+                        <p>{{ email }}</p>
+                    </div>
+                </div>
+                <button class="btn-secondary" onclick="alert('Actualizar correo próximamente')">
+                    Actualizar
+                </button>
+            </div>
+
+            <div class="security-item">
+                <div class="security-info">
+                    <div class="security-icon">🔐</div>
+                    <div>
+                        <h3>Autenticación de Dos Factores</h3>
+                        <p>No configurada</p>
+                    </div>
+                </div>
+                <button class="btn-secondary" onclick="alert('Configurar 2FA próximamente')">
+                    Activar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card de Preferencias -->
+    <div class="profile-card">
+        <div class="profile-card-header">
+            <h2>Preferencias</h2>
+        </div>
+
+        <div class="preferences-list">
+            <div class="preference-item">
+                <div class="preference-info">
+                    <h3>Notificaciones por Email</h3>
+                    <p>Recibe actualizaciones sobre tus campañas</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="preference-item">
+                <div class="preference-info">
+                    <h3>Reportes Semanales</h3>
+                    <p>Resumen de actividad cada lunes</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="preference-item">
+                <div class="preference-info">
+                    <h3>Notificaciones de Marketing</h3>
+                    <p>Novedades y ofertas especiales</p>
+                </div>
+                <label class="toggle-switch">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card de Sesión -->
+    <div class="profile-card danger-zone">
+        <div class="profile-card-header">
+            <h2>Zona de Peligro</h2>
+        </div>
+
+        <div class="danger-actions">
+            <div class="danger-item">
+                <div>
+                    <h3>Cerrar Sesión</h3>
+                    <p>Cierra tu sesión actual en este dispositivo</p>
+                </div>
+                <form action="{{ url_for('logout') }}" method="POST" style="margin: 0;">
+                    <button type="submit" class="btn-danger">Cerrar Sesión</button>
+                </form>
+            </div>
+
+            <div class="danger-item">
+                <div>
+                    <h3>Eliminar Cuenta</h3>
+                    <p>Elimina permanentemente tu cuenta y todos tus datos</p>
+                </div>
+                <button class="btn-danger" onclick="confirmarEliminacion()">
+                    Eliminar Cuenta
+                </button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+function confirmarEliminacion() {
+    if (confirm('⚠️ ¿Estás seguro de que deseas eliminar tu cuenta?\n\nEsta acción es IRREVERSIBLE y perderás:\n• Todas tus campañas\n• Todo tu contenido\n• Tu historial completo\n\n¿Deseas continuar?')) {
+        if (confirm('Esta es tu última oportunidad. ¿Realmente deseas eliminar tu cuenta?')) {
+            alert('Tu solicitud de eliminación ha sido registrada. Recibirás un correo de confirmación.');
+        }
+    }
+}
+</script>
+
+{% endblock %}

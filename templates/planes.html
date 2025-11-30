@@ -1,0 +1,163 @@
+{% extends "base.html" %}
+{% block title %}Planes - MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/planes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+<section class="planes-hero">
+    <h1>Elige el Plan Perfecto para Tu Negocio</h1>
+    <p>Impulsa tu estrategia de marketing digital con las herramientas que necesitas</p>
+</section>
+
+<!-- Planes Section -->
+<section class="planes-section">
+    <div class="planes-grid">
+        
+        <!-- Plan Básico -->
+        <div class="plan-card">
+            <h3 class="plan-name">Básico</h3>
+            <p class="plan-descripcion">Ideal para emprendedores y pequeños negocios</p>
+            
+            <div class="plan-precio">
+                <span class="precio-valor">$0</span>
+                <span class="precio-periodo">/ mes</span>
+            </div>
+            
+            <ul class="plan-caracteristicas">
+                <li><span class="check-icon">✓</span> 3 campañas activas</li>
+                <li><span class="check-icon">✓</span> Análisis básico</li>
+                <li><span class="check-icon">✓</span> Acceso a comunidad</li>
+                <li><span class="check-icon">✓</span> Soporte por email</li>
+                <li><span class="check-icon">✓</span> 1GB de almacenamiento</li>
+                <li><span class="check-icon">✓</span> Dashboard básico</li>
+            </ul>
+            
+            <button class="plan-cta secondary" onclick="window.location.href='/register'">
+                Comenzar Gratis
+            </button>
+        </div>
+        
+        <!-- Plan Profesional (Destacado) -->
+        <div class="plan-card featured">
+            <span class="plan-badge">Más Popular</span>
+            <h3 class="plan-name">Profesional</h3>
+            <p class="plan-descripcion">Para profesionales y empresas en crecimiento</p>
+            
+            <div class="plan-precio">
+                <span class="precio-valor">$29</span>
+                <span class="precio-periodo">/ mes</span>
+            </div>
+            
+            <ul class="plan-caracteristicas">
+                <li><span class="check-icon">✓</span> 15 campañas activas</li>
+                <li><span class="check-icon">✓</span> Análisis avanzado</li>
+                <li><span class="check-icon">✓</span> Comunidad completa</li>
+                <li><span class="check-icon">✓</span> Soporte prioritario 24/7</li>
+                <li><span class="check-icon">✓</span> 50GB de almacenamiento</li>
+                <li><span class="check-icon">✓</span> Dashboard avanzado</li>
+                <li><span class="check-icon">✓</span> Integraciones API</li>
+                <li><span class="check-icon">✓</span> Reportes personalizados</li>
+            </ul>
+            
+            <button class="plan-cta" onclick="alert('Próximamente disponible')">
+                Elegir Plan Pro
+            </button>
+        </div>
+        
+        <!-- Plan Empresarial -->
+        <div class="plan-card">
+            <h3 class="plan-name">Empresarial</h3>
+            <p class="plan-descripcion">Para grandes equipos y empresas establecidas</p>
+            
+            <div class="plan-precio">
+                <span class="precio-valor">$99</span>
+                <span class="precio-periodo">/ mes</span>
+            </div>
+            
+            <ul class="plan-caracteristicas">
+                <li><span class="check-icon">✓</span> Campañas ilimitadas</li>
+                <li><span class="check-icon">✓</span> Análisis premium con IA</li>
+                <li><span class="check-icon">✓</span> Equipo colaborativo</li>
+                <li><span class="check-icon">✓</span> Soporte 24/7 dedicado</li>
+                <li><span class="check-icon">✓</span> Almacenamiento ilimitado</li>
+                <li><span class="check-icon">✓</span> Dashboard empresarial</li>
+                <li><span class="check-icon">✓</span> Todas las integraciones</li>
+                <li><span class="check-icon">✓</span> Consultor asignado</li>
+                <li><span class="check-icon">✓</span> SLA garantizado 99.9%</li>
+            </ul>
+            
+            <button class="plan-cta secondary" onclick="alert('Contacta ventas: ventas@marketlink.com')">
+                Contactar Ventas
+            </button>
+        </div>
+        
+    </div>
+</section>
+
+<!-- Comparación de Planes -->
+<section class="comparacion-section">
+    <h2 class="comparacion-title">Compara Todos los Planes</h2>
+    
+    <div class="comparacion-table">
+        <table>
+            <thead>
+                <tr>
+                    <th>Características</th>
+                    <th>Básico</th>
+                    <th>Profesional</th>
+                    <th>Empresarial</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Campañas activas</td>
+                    <td>3</td>
+                    <td>15</td>
+                    <td>Ilimitadas</td>
+                </tr>
+                <tr>
+                    <td>Almacenamiento</td>
+                    <td>1GB</td>
+                    <td>50GB</td>
+                    <td>Ilimitado</td>
+                </tr>
+                <tr>
+                    <td>Análisis avanzado</td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="check-table">✓</span></td>
+                    <td><span class="check-table">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Integraciones API</td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="check-table">✓</span></td>
+                    <td><span class="check-table">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Soporte prioritario</td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="check-table">✓</span></td>
+                    <td><span class="check-table">✓</span></td>
+                </tr>
+                <tr>
+                    <td>Consultor dedicado</td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="check-table">✓</span></td>
+                </tr>
+                <tr>
+                    <td>SLA garantizado</td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="cross-table">✕</span></td>
+                    <td><span class="check-table">✓</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+{% endblock %}

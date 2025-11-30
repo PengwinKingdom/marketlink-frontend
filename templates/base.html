@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}MarketLink · Red Social de Marketing Digital{% endblock %}</title>
+    
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    
+    
+    {% block extra_css %}{% endblock %}
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+{# Navbar (se oculta si hide_header=True) #}
+{% if not hide_header %}
+<nav class="planes-navbar">
+    <a href="/" class="navbar-logo">
+        <img src="{{ url_for('static', filename='images/MarketLink-Logo.png') }}" alt="MarketLink Logo">
+        <span class="navbar-logo-text">MarketLink</span>
+    </a>
+
+    <ul class="navbar-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/#features">Características</a></li>
+        <li><a href="/planes">Planes</a></li>
+    </ul>
+
+    <div class="navbar-btns">
+        <a href="/login" class="btn-link">Iniciar Sesión</a>
+        <a href="/register" class="btn-link btn-primary-nav">Registrarse</a>
+    </div>
+</nav>
+{% endif %}
+
+
+    <!-- Contenido principal de cada página -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="{{ url_for('static', filename='images/MarketLink-Logo.png') }}" alt="MarketLink Logo" class="logo-icon">
+                        <span class="logo-text">MarketLink</span>
+                    </div>
+                    <p class="footer-description">
+                        La red social del marketing digital. Conectando profesionales, compartiendo conocimiento.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Plataforma</h4>
+                    <ul class="footer-links">
+                        <li><a href="{{ url_for('home') }}">Inicio</a></li>
+                        <li><a href="#caracteristicas">Características</a></li>
+                        <li><a href="{{ url_for('planes') }}">Planes</a></li>
+                        <li><a href="#">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Empresa</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Carreras</a></li>
+                        <li><a href="{{ url_for('soporte') }}">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Privacidad</a></li>
+                        <li><a href="#">Términos</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Licencias</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 MarketLink. Todos los derechos reservados.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M6.29 18.25c7.55 0 11.67-6.25 11.67-11.67 0-.18 0-.35-.01-.53A8.35 8.35 0 0020 3.92a8.18 8.18 0 01-2.36.65 4.12 4.12 0 001.8-2.27 8.22 8.22 0 01-2.6 1 4.1 4.1 0 00-6.99 3.74 11.65 11.65 0 01-8.46-4.29 4.1 4.1 0 001.27 5.48A4.07 4.07 0 01.8 7.71v.05a4.1 4.1 0 003.29 4.02 4.1 4.1 0 01-1.85.07 4.1 4.1 0 003.83 2.85A8.23 8.23 0 010 16.4a11.62 11.62 0 006.29 1.84"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="LinkedIn">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M18.5 0h-17A1.5 1.5 0 000 1.5v17A1.5 1.5 0 001.5 20h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0018.5 0zM6 17H3V8h3v9zM4.5 6.5A1.5 1.5 0 113 5a1.5 1.5 0 011.5 1.5zM17 17h-3v-4.5c0-1.12-.02-2.56-1.56-2.56-1.56 0-1.8 1.22-1.8 2.48V17h-3V8h2.88v1.23h.04a3.16 3.16 0 012.84-1.56c3.04 0 3.6 2 3.6 4.59V17z"/>
+                        </svg>
+                    </a>
+                    <a href="#" aria-label="Instagram">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 0C7.28 0 6.94.01 5.88.05 2.73.22.22 2.73.05 5.88.01 6.94 0 7.28 0 10s.01 3.06.05 4.12c.17 3.15 2.68 5.66 5.83 5.83 1.06.04 1.4.05 4.12.05s3.06-.01 4.12-.05c3.15-.17 5.66-2.68 5.83-5.83.04-1.06.05-1.4.05-4.12s-.01-3.06-.05-4.12C19.78 2.73 17.27.22 14.12.05 13.06.01 12.72 0 10 0zm0 1.8c2.67 0 2.99.01 4.04.05 2.28.1 3.96 1.79 4.06 4.06.04 1.05.05 1.37.05 4.04s-.01 2.99-.05 4.04c-.1 2.27-1.78 3.96-4.06 4.06-1.05.04-1.37.05-4.04.05s-2.99-.01-4.04-.05c-2.28-.1-3.96-1.79-4.06-4.06-.04-1.05-.05-1.37-.05-4.04s.01-2.99.05-4.04c.1-2.27 1.78-3.96 4.06-4.06 1.05-.04 1.37-.05 4.04-.05zm0 3.04a5.16 5.16 0 100 10.32 5.16 5.16 0 000-10.32zm0 8.52a3.36 3.36 0 110-6.72 3.36 3.36 0 010 6.72zm5.38-9.85a1.21 1.21 0 11-2.42 0 1.21 1.21 0 012.42 0z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts opcionales -->
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

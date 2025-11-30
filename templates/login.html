@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Inicia sesión · MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- Navbar -->
+<nav class="auth-navbar">
+    <a href="{{ url_for('home') }}" class="navbar-logo">
+        <img src="{{ url_for('static', filename='images/MarketLink-Logo.png') }}" alt="MarketLink Logo" style="height: 40px; margin-right: 8px;">
+        <span class="logo-text">MarketLink</span>
+    </a>
+    
+    <ul class="navbar-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="{{ url_for('home') }}#features">Características</a></li>
+        <li><a href="{{ url_for('planes') }}">Planes</a></li>
+    </ul>
+    
+    <div class="navbar-btns">
+        <a href="{{ url_for('login') }}" class="btn-link">Iniciar Sesión</a>
+        <a href="{{ url_for('register') }}" class="btn-link btn-register">Registrarse</a>
+    </div>
+</nav>
+
+<!-- Hero Section con formulario -->
+<section class="auth-hero">
+    <div class="auth-grid">
+        <div class="auth-card">
+            <a href="{{ url_for('home') }}" class="close-btn">&times;</a>
+            
+            <h1>Inicia Sesión</h1>
+            
+            <form action="{{ url_for('login') }}" method="POST" novalidate>
+                <label for="email">Correo corporativo</label>
+                <input 
+                    id="email" 
+                    name="email" 
+                    type="email" 
+                    placeholder="tu@empresa.com" 
+                    required
+                    autocomplete="email"
+                >
+                
+                <label for="password">Contraseña</label>
+                <input 
+                    id="password" 
+                    name="password" 
+                    type="password" 
+                    placeholder="••••••••" 
+                    minlength="6" 
+                    required
+                    autocomplete="current-password"
+                >
+                
+                <button class="btn btn-primary btn-block" type="submit">Inicia Sesión</button>
+                
+                <p class="auth-help">
+                    ¿No estás registrado?
+                    <a href="{{ url_for('register') }}">Crea tu cuenta</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,286 @@
+{% extends "base.html" %}
+
+{% block title %}Soporte - MarketLink{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/soporte.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- Header del Dashboard -->
+<header class="dashboard-header">
+  <div class="brand"><strong>MarketLink</strong></div>
+  <nav class="dash-nav">
+    <ul>
+      <li><a href="{{ url_for('dashboard') }}" >Dashboard</a></li>
+      <a href="/dashboard/planes">Mi Plan</a>
+      <li><a href="{{ url_for('soporte') }}" class="active">Soporte</a></li>
+      <li><a href="{{ url_for('profile') }}">Perfil</a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Contenido Principal -->
+<main class="soporte-container">
+    
+    <!-- Header de Soporte -->
+    <div class="soporte-header">
+        <div class="header-text">
+            <h1>Centro de Soporte</h1>
+            <p>Estamos aquí para ayudarte. Soporte 24/7 para todos los planes</p>
+        </div>
+        <div class="status-badge">
+            <span class="status-dot"></span>
+            <span>Soporte disponible</span>
+        </div>
+    </div>
+
+    <!-- Acciones Rápidas -->
+    <section class="quick-actions">
+        <div class="action-card primary">
+            <div class="action-icon">📝</div>
+            <div class="action-content">
+                <h3>Crear Ticket</h3>
+                <p>Reporta un problema o solicita ayuda</p>
+            </div>
+            <button class="action-btn" onclick="alert('Abriendo formulario de ticket...')">Crear</button>
+        </div>
+
+        <div class="action-card">
+            <div class="action-icon">💬</div>
+            <div class="action-content">
+                <h3>Chat en Vivo</h3>
+                <p>Respuesta en 2-5 minutos</p>
+            </div>
+            <button class="action-btn" onclick="alert('Iniciando chat...')">Chatear</button>
+        </div>
+
+        <div class="action-card">
+            <div class="action-icon">📞</div>
+            <div class="action-content">
+                <h3>Llamar al Soporte</h3>
+                <p>+51 1 234 5678</p>
+            </div>
+            <button class="action-btn" onclick="alert('Llamando...')">Llamar</button>
+        </div>
+
+        <div class="action-card">
+            <div class="action-icon">📧</div>
+            <div class="action-content">
+                <h3>Enviar Email</h3>
+                <p>soporte@marketlink.com</p>
+            </div>
+            <button class="action-btn" onclick="alert('Abriendo email...')">Enviar</button>
+        </div>
+    </section>
+
+    <!-- Layout Principal -->
+    <div class="soporte-layout">
+        
+        <!-- Columna Izquierda: Tickets -->
+        <div class="tickets-column">
+            
+            <div class="section-header">
+                <h2>Mis Tickets</h2>
+                <div class="ticket-filters">
+                    <button class="filter-btn active">Todos (4)</button>
+                    <button class="filter-btn">Abiertos (2)</button>
+                    <button class="filter-btn">Resueltos (2)</button>
+                </div>
+            </div>
+
+            <!-- Lista de Tickets -->
+            <div class="tickets-list">
+                
+                <!-- Ticket Abierto -->
+                <article class="ticket-card open">
+                    <div class="ticket-header-row">
+                        <span class="ticket-id">#TKT-1892</span>
+                        <span class="ticket-status open">Abierto</span>
+                    </div>
+                    <h3 class="ticket-title">Problema con integración de API</h3>
+                    <p class="ticket-preview">La API no responde correctamente al intentar crear una nueva campaña...</p>
+                    <div class="ticket-footer">
+                        <div class="ticket-meta">
+                            <span>📅 Hace 3 horas</span>
+                            <span class="priority high">⚠️ Alta prioridad</span>
+                        </div>
+                        <button class="btn-ticket">Ver Ticket</button>
+                    </div>
+                </article>
+
+                <!-- Ticket en Progreso -->
+                <article class="ticket-card progress">
+                    <div class="ticket-header-row">
+                        <span class="ticket-id">#TKT-1875</span>
+                        <span class="ticket-status progress">En progreso</span>
+                    </div>
+                    <h3 class="ticket-title">Consulta sobre upgrade a plan Professional</h3>
+                    <p class="ticket-preview">Necesito información sobre las diferencias entre el plan Básico y Professional...</p>
+                    <div class="ticket-footer">
+                        <div class="ticket-meta">
+                            <span>📅 Hace 1 día</span>
+                            <span>👤 Asignado a: Carlos Ruiz</span>
+                        </div>
+                        <button class="btn-ticket">Ver Ticket</button>
+                    </div>
+                </article>
+
+                <!-- Ticket Resuelto -->
+                <article class="ticket-card resolved">
+                    <div class="ticket-header-row">
+                        <span class="ticket-id">#TKT-1834</span>
+                        <span class="ticket-status resolved">Resuelto</span>
+                    </div>
+                    <h3 class="ticket-title">Error en dashboard de analytics</h3>
+                    <p class="ticket-preview">Problema resuelto. Se actualizó el dashboard correctamente.</p>
+                    <div class="ticket-footer">
+                        <div class="ticket-meta">
+                            <span>📅 Hace 4 días</span>
+                            <span class="resolved-time">✓ Resuelto en 12h</span>
+                        </div>
+                        <button class="btn-ticket">Ver Detalles</button>
+                    </div>
+                </article>
+
+                <!-- Ticket Cerrado -->
+                <article class="ticket-card closed">
+                    <div class="ticket-header-row">
+                        <span class="ticket-id">#TKT-1801</span>
+                        <span class="ticket-status closed">Cerrado</span>
+                    </div>
+                    <h3 class="ticket-title">Pregunta sobre facturación</h3>
+                    <p class="ticket-preview">Consulta resuelta mediante base de conocimiento.</p>
+                    <div class="ticket-footer">
+                        <div class="ticket-meta">
+                            <span>📅 Hace 8 días</span>
+                        </div>
+                        <button class="btn-ticket">Ver Historial</button>
+                    </div>
+                </article>
+
+            </div>
+
+        </div>
+
+        <!-- Columna Derecha: Recursos -->
+        <div class="resources-column">
+            
+            <!-- Base de Conocimiento -->
+            <section class="kb-section">
+                <div class="section-header-small">
+                    <h3>Base de Conocimiento</h3>
+                    <a href="#" class="link-explore">Explorar todo →</a>
+                </div>
+
+                <!-- Buscador -->
+                <div class="kb-search">
+                    <input type="text" placeholder="Buscar artículos..." class="search-input">
+                    <button class="search-btn">🔍</button>
+                </div>
+
+                <!-- Categorías -->
+                <div class="kb-categories">
+                    <a href="#" class="kb-category">
+                        <span class="kb-icon">🚀</span>
+                        <div class="kb-info">
+                            <div class="kb-title">Primeros Pasos</div>
+                            <div class="kb-count">12 artículos</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="kb-category">
+                        <span class="kb-icon">⚙️</span>
+                        <div class="kb-info">
+                            <div class="kb-title">Configuración</div>
+                            <div class="kb-count">18 artículos</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="kb-category">
+                        <span class="kb-icon">📊</span>
+                        <div class="kb-info">
+                            <div class="kb-title">Campañas</div>
+                            <div class="kb-count">24 artículos</div>
+                        </div>
+                    </a>
+
+                    <a href="#" class="kb-category">
+                        <span class="kb-icon">💳</span>
+                        <div class="kb-info">
+                            <div class="kb-title">Facturación</div>
+                            <div class="kb-count">10 artículos</div>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- Artículos Populares -->
+                <div class="popular-articles">
+                    <h4>Artículos más vistos</h4>
+                    <ul class="articles-list">
+                        <li><a href="#">📄 Cómo crear tu primera campaña</a></li>
+                        <li><a href="#">📄 Configurar notificaciones</a></li>
+                        <li><a href="#">📄 Entender métricas de engagement</a></li>
+                        <li><a href="#">📄 Actualizar método de pago</a></li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- FAQ -->
+            <section class="faq-section">
+                <h3>Preguntas Frecuentes</h3>
+
+                <div class="faq-list">
+                    
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>¿Cómo cambio mi plan?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ve a la sección "Mi Plan" y haz clic en "Ver Planes Disponibles". Podrás actualizar tu plan en cualquier momento.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>¿Cuántas campañas puedo crear?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Depende de tu plan: Plan Básico (3), Professional (15), Empresarial (ilimitadas).</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>¿Puedo obtener un reembolso?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Sí, ofrecemos reembolso completo dentro de los primeros 30 días sin preguntas.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <button class="faq-question" onclick="this.parentElement.classList.toggle('open')">
+                            <span>¿Cómo restablezco mi contraseña?</span>
+                            <span class="faq-icon">+</span>
+                        </button>
+                        <div class="faq-answer">
+                            <p>Ve a la página de login y haz clic en "¿Olvidaste tu contraseña?". Recibirás un email con instrucciones.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+    </div>
+
+</main>
+
+{% endblock %}

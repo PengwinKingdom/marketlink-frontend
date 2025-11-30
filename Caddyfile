@@ -1,0 +1,8 @@
+:80 {
+    redir https://{host}{uri}
+}
+
+:443 {
+    
+    reverse_proxy marketlink-front:5001
+}
