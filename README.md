@@ -5,12 +5,12 @@ La aplicación se ejecuta en un contenedor Docker y, para entornos de producció
 
 ---
 
-## 🚀 Ejecución con Docker
+## Ejecución con Docker
 
 - Clonar el repositorio:
   
 ```bash
-git clone <URL-del-repo>
+git clone https://github.com/PengwinKingdom/marketlink-frontend.git
 cd marketlink-frontend
 ```
 
